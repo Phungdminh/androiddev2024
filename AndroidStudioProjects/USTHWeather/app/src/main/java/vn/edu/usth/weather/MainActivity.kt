@@ -1,47 +1,41 @@
 package vn.edu.usth.weather
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import vn.edu.usth.weather.ui.theme.USTHWeatherTheme
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : ComponentActivity() {
+class WeatherActivity : AppCompatActivity() {
+
+    private val TAG = "WeatherActivity"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            USTHWeatherTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
-        }
+        setContentView(R.layout.activity_weather)
+        Log.i(TAG, "onCreate được gọi")
     }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+    override fun onStart() {
+        super.onStart()
+        Log.i(TAG, "onStart được gọi")
+    }
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    USTHWeatherTheme {
-        Greeting("Android")
+    override fun onResume() {
+        super.onResume()
+        Log.i(TAG, "onResume được gọi")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i(TAG, "onPause được gọi")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i(TAG, "onStop được gọi")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(TAG, "onDestroy được gọi")
     }
 }
