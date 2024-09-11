@@ -10,7 +10,7 @@ Students are expected to:
 Student Info
 =======================
 
-* Name: Phùng Đức Minh  
-* ID: BI12-277  
+* Name: 
+* ID: 
 * Group ID: *Your Group ID here*
 * Project Name: *Your Project Name here*
