@@ -10,7 +10,8 @@ Students are expected to:
 Student Info
 =======================
 
-* Name: 
-* ID: 
-* Group ID: *Your Group ID here*
-* Project Name: *Your Project Name here*
+* Name: Phùng Đức Minh  
+* ID: BI12-277  
+* Group ID: 17
+* Project Name: USTH Weather
+
