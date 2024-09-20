@@ -13,5 +13,5 @@ Student Info
 * Name: Phùng Đức Minh  
 * ID: BI12-277  
 * Group ID: 17
-* Project Name: USTH Weather
+* Project Name: Open Vision API Front-End
 
