@@ -179,7 +179,28 @@ public class WeatherActivity extends AppCompatActivity {
         });
         t.start();
     }
+    private void simulateNetworkRequest() {
+        // Show a Toast message before simulating the network request
+        Toast.makeText(this, "Refreshing...", Toast.LENGTH_SHORT).show();
 
+        // Create a Handler to simulate a delay (like a network request)
+        Handler handler = new Handler(Looper.getMainLooper());
+        new Thread(() -> {
+            try {
+                // Simulate a delay (e.g., 2 seconds)
+                Thread.sleep(2000);
+
+                // Post the result back to the main thread
+                handler.post(() -> {
+                    // Show a Toast message indicating that the "network request" is complete
+                    Toast.makeText(MainActivity.this, "Data refreshed!", Toast.LENGTH_SHORT).show();
+                });
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }).start();
+    }
+}
 
 
 
