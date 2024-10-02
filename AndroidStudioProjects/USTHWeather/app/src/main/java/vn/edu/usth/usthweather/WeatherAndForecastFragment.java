@@ -1,3 +1,5 @@
+package vn.edu.usth.usthweather;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +18,7 @@ public class WeatherAndForecastFragment extends Fragment {
         return fragment;
     }
 
-//    @Override
+    //    @Override
 //    public void onCreate(@Nullable Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
 //        if (getArguments() != null) {
@@ -26,7 +28,7 @@ public class WeatherAndForecastFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-        Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_weather_and_forecast, container, false);        WeatherFragment weatherFragment = new WeatherFragment();
         View view = inflater.inflate(R.layout.fragment_weather_and_forecast, container, false);
@@ -37,10 +39,11 @@ public class WeatherAndForecastFragment extends Fragment {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         ForecastFragment forecastFragment = new ForecastFragment();
         getChildFragmentManager().beginTransaction()
-            .add(R.id.forecast_container, forecastFragment)
-            .commit();
+                .add(R.id.forecast_container, forecastFragment)
+                .commit();
         fragmentTransaction.add(R.id.ForecastFragment, forecastFragment);
         WeatherFragment weatherFragment = new WeatherFragment();
         fragmentTransaction.add(R.id.container, weatherFragment);
         fragmentTransaction.commit();
         return view;
+

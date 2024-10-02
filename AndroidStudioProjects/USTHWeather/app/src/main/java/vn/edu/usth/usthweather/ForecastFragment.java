@@ -1,15 +1,24 @@
+package vn.edu.usth.usthweather;
 
-import android.R
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-fun onCreateView(
-    inflater: LayoutInflater,
-    container: ViewGroup?,
-    savedInstanceState: Bundle?
-): View {
+import androidx.fragment.app.Fragment;
+
+public class ForecastFragment extends Fragment {
+
+    public ForecastFragment() {
+
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 //        LinearLayout linearLayout = new LinearLayout(getContext());
 //        linearLayout.setOrientation(LinearLayout.VERTICAL);
 //        linearLayout.setLayoutParams(new LinearLayout.LayoutParams(
@@ -35,7 +44,9 @@ fun onCreateView(
 //        );
 //        textParams.setMargins(16, 16, 16, 8);
 //        linearLayout.addView(imageView, imageParams);
-    return inflater.inflate(R.layout.fragment_forecast, container, false)
-    val view: View = inflater.inflate(R.layout.fragment_forecast, container, false)
-    return view
+        return inflater.inflate(R.layout.fragment_forecast, container, false);
+        View view = inflater.inflate(R.layout.fragment_forecast, container, false);
+        return view;
+    }
+
 }

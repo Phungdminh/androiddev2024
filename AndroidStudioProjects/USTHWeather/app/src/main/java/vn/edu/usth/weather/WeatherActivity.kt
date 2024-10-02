@@ -1,41 +1,54 @@
-package vn.edu.usth.weather
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle
-import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
+public class MainActivity extends AppCompatActivity {
 
-class WeatherActivity : AppCompatActivity() {
-
-    private val TAG = "WeatherActivity"
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_weather)
-        Log.i(TAG, "onCreate được gọi")
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
     }
 
-    override fun onStart() {
-        super.onStart()
-        Log.i(TAG, "onStart được gọi")
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
     }
 
-    override fun onResume() {
-        super.onResume()
-        Log.i(TAG, "onResume được gọi")
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_refresh) {
+            simulateNetworkRequest();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
-    override fun onPause() {
-        super.onPause()
-        Log.i(TAG, "onPause được gọi")
-    }
+    private void simulateNetworkRequest() {
+        // Show a Toast message before simulating the network request
+        Toast.makeText(this, "Refreshing...", Toast.LENGTH_SHORT).show();
 
-    override fun onStop() {
-        super.onStop()
-        Log.i(TAG, "onStop được gọi")
-    }
+        // Create a Handler to simulate a delay (like a network request)
+        Handler handler = new Handler(Looper.getMainLooper());
+        new Thread(() -> {
+        try {
+            // Simulate a delay (e.g., 2 seconds)
+            Thread.sleep(2000);
 
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.i(TAG, "onDestroy được gọi")
+            // Post the result back to the main thread
+            handler.post(() -> {
+                // Show a Toast message indicating that the "network request" is complete
+                Toast.makeText(MainActivity.this, "Data refreshed!", Toast.LENGTH_SHORT).show();
+            });
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }).start();
     }
-}
